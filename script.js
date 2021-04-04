@@ -448,3 +448,13 @@ function showElements(...args) {
         classOrElemToToggle.classList.toggle('hidden');
     })
 };
+
+/**
+ * Toggles 'about' modal window open.
+ */
+function toggleAboutWindow() {
+    const modalAboutWindow = document.querySelector('.about-modal-container');
+    const shadow = document.querySelector('.about-modal-shadow')
+    modalAboutWindow.classList.toggle('hidden');
+    shadow.classList.toggle('hidden')
+}

@@ -1,74 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Press+Start+2P&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StarWars</title>
-</head>
+  </head>
 
-<body>
+  <body>
+    <div class="about-modal-shadow hidden" onclick="toggleAboutWindow()"></div>
+    <div class="about-modal-container hidden">
+        <h2>About</h2>
+        <h4>Hello there!</h4>
+        <p>
+          My name is <a href="https://t.me/GEORGIY_APRAKSIN">George</a> and this
+          my vanilla "SAP" made during
+          <a href="https://www.interesnee.ru/">INTERESNEE JS WINTER CAMP 2021</a
+          >.
+          <p>Here is nothing fancy used, just good old vanilla JS and Firebase as a backend.</p>
+        </p>
+        <p>Portfolio and stuff:</p>
+        <ul class="portfolio-list">
+          <li>
+            <a href="https://github.com/dreamvibe1993">Git Hub</a>
+          </li>
+          <li>
+            <a href="https://soundcloud.com/mister-dreamvibe">SoundCloud</a>
+          </li>
+        </ul>
+        <a
+          href="https://ekaterinburg.hh.ru/resume/416ea42dff089785ce0039ed1f345831765647"
+          >Hire me</a
+        >🤩<br />
+        <div class="button-container">
+          <button type="button" class="btn btn-info" onclick="toggleAboutWindow()">
+            Back
+          </button>
+        </div>
+    </div>
     <h1 class="maintitle">Welcome to the StarWars geek lair!</h1>
     <div class="loadingscreen hidden">Loading...</div>
     <div class="movieadded-modal hidden">
-        <strong>Your movie's been added. Thank you!</strong><br />
-        <a href="index.html">Back</a>
+      <strong>Your movie's been added. Thank you!</strong><br />
+      <a href="index.html">Back</a>
     </div>
     <div class="movieedited-modal hidden">
-        <strong>Your changes have been submitted. Thank you!</strong><br />
-        <a href="index.html">Back</a>
+      <strong>Your changes have been submitted. Thank you!</strong><br />
+      <a href="index.html">Back</a>
     </div>
     <div class="error-modal hidden">
-        <strong>Oops! Something went wrong!</strong><br />
-        <a href="index.html">Back</a>
+      <strong>Oops! Something went wrong!</strong><br />
+      <a href="index.html">Back</a>
     </div>
+
     <main class="root hidden">
-        <section class="movietable-container">
-            <h3>Movies</h3>
-            <form class="searchform" onsubmit="searchAMovie(event)">
-                <input class="searchform-input" type="search" placeholder="Find your movie" />
-                <button class="searchform-button" type="submit" title="Click to search your movie.">
+      <section class="movietable-container">
+        <h3>Movies</h3>
+        <form class="searchform" onsubmit="searchAMovie(event)">
+          <input
+            class="searchform-input"
+            type="search"
+            placeholder="Find your movie"
+          />
+          <button
+            class="searchform-button"
+            type="submit"
+            title="Click to search your movie."
+          >
             Search
           </button>
-            </form>
-            <ul class="pagination" onclick="paginate(event)">
-                <li class="pagination-item-li">
-                    <input class="pagination-item-option" name="pagination" type="radio" id="pagination1" checked />
-                    <label class="pagination-item-label" for="pagination1">1</label>
-                </li>
-                <li class="pagination-item-li">
-                    <input class="pagination-item-option" name="pagination" type="radio" id="pagination2" />
-                    <label class="pagination-item-label" for="pagination2">2</label>
-                </li>
-            </ul>
-            <div class="table-display-container"></div>
-            <hr />
-            <a href="index.html?q=none&action=create">Create a movie</a>
-        </section>
-        <section class="movie-detailscontainer hidden">
-            <form name="editDetails" class="movie-detailsform" onsubmit="sendDetailsToDB(event)">
-                <button type="button" class="movie-detailsform-toggler hidden" title="Click to see related planets and characters." onclick="displayCharactersOrPlanets()">
+        </form>
+        <ul class="pagination" onclick="paginate(event)">
+          <li class="pagination-item-li">
+            <input
+              class="pagination-item-option"
+              name="pagination"
+              type="radio"
+              id="pagination1"
+              checked
+            />
+            <label class="pagination-item-label" for="pagination1">1</label>
+          </li>
+          <li class="pagination-item-li">
+            <input
+              class="pagination-item-option"
+              name="pagination"
+              type="radio"
+              id="pagination2"
+            />
+            <label class="pagination-item-label" for="pagination2">2</label>
+          </li>
+        </ul>
+        <div class="table-display-container"></div>
+        <hr />
+        <div class="about-button-container">
+          <button type="button" class="main-window-about-button" onclick="toggleAboutWindow()">About</button>
+          <a href="index.html?q=none&action=create">Create a movie</a>
+        </div>
+      </section>
+      <section class="movie-detailscontainer hidden">
+        <form
+          name="editDetails"
+          class="movie-detailsform"
+          onsubmit="sendDetailsToDB(event)"
+        >
+          <button
+            type="button"
+            class="movie-detailsform-toggler hidden"
+            title="Click to see related planets and characters."
+            onclick="displayCharactersOrPlanets()"
+          >
             ►
           </button>
-                <div class="movie-detailsform-data">
-                    <h3>Details</h3>
-                    <label for="title"> Title </label>
-                    <br />
-                    <input name="title" id="title" type="text" required />
-                    <label for="date"> The premiere </label>
-                    <br />
-                    <input name="date" id="date" type="date" required />
-                    <label for="director"> Director </label>
-                    <br />
-                    <input name="director" id="director" type="text" required />
-                    <label for="crawl"> Opening crawl </label>
-                    <br />
-                    <textarea name="crawl" id="crawl" class="textarea-crawl" required></textarea>
-                    <label for="producer"> Producer </label>
-                    <br />
-                    <textarea name="producer" id="producer" class="textarea-producers" type="text" required></textarea
+          <div class="movie-detailsform-data">
+            <h3>Details</h3>
+            <label for="title"> Title </label>
+            <br />
+            <input name="title" id="title" type="text" required />
+            <label for="date"> The premiere </label>
+            <br />
+            <input name="date" id="date" type="date" required />
+            <label for="director"> Director </label>
+            <br />
+            <input name="director" id="director" type="text" required />
+            <label for="crawl"> Opening crawl </label>
+            <br />
+            <textarea
+              name="crawl"
+              id="crawl"
+              class="textarea-crawl"
+              required
+            ></textarea>
+            <label for="producer"> Producer </label>
+            <br />
+            <textarea
+              name="producer"
+              id="producer"
+              class="textarea-producers"
+              type="text"
+              required
+            ></textarea
             ><br />
             <div class="movie-detailsform-buttons">
               <!-- Don't mind the emptiness in href attribute. Links are pasted dynamically. See script.js -->
@@ -132,6 +208,7 @@
         </div>
       </div>
     </main>
+
     <script src="script.js"></script>
   </body>
 </html>
