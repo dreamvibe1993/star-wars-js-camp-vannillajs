@@ -1,0 +1,288 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    text-align: center;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+.loadingscreen {
+    position: absolute;
+    left: 50%;
+    margin-left: -38px;
+    top: 40%;
+    margin-top: -50px;
+}
+
+.hidden {
+    display: none;
+}
+
+.maintitle {
+    font-family: 'Press Start 2P', cursive;
+}
+
+.movietable-container {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+    margin: 10px auto;
+}
+
+.pagination-item-label {
+    cursor: pointer;
+    list-style: none;
+    padding: 10px;
+    width: 50px;
+}
+
+.pagination-item-li {
+    width: 50px;
+    margin: 10px 5px;
+}
+
+.pagination-item-option {
+    appearance: none;
+}
+
+.pagination input[type="radio"]:checked+label {
+    background-color: #eee;
+}
+
+.pagination-item-label:hover {
+    background-color: #eee;
+}
+
+.movie-table {
+    width: 100%;
+}
+
+.episode-title {
+    width: 60%;
+}
+
+.episode-title a {
+    color: black;
+}
+
+.movie-detailscontainer input {
+    width: 80%;
+}
+
+.movie-detailscontainer textarea {
+    resize: none;
+    font-size: inherit;
+    font-family: inherit;
+    width: 80%;
+}
+
+.movie-detailscontainer textarea:disabled {
+    border: none
+}
+
+.textarea-crawl {
+    height: 200px;
+    color: black;
+}
+
+.textarea-producers {
+    max-height: 200px;
+    color: black
+}
+
+.movie-detailscontainer input:disabled {
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    color: black;
+}
+
+.movie-detailscontainer input {
+    font-family: inherit;
+    font-size: inherit;
+    color: black;
+}
+
+.movie-table,
+.movie-table td,
+.movie-table tr {
+    margin: 0 auto;
+    border-collapse: collapse;
+    border: 1px solid black;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.characters__character h4,
+.planets__planet h4 {
+    line-height: 1;
+    margin: 5px 0px;
+}
+
+.movie-detailssidebar-characters-header,
+.movie-detailssidebar-planets-header {
+    background-color: #eee;
+    margin: 0px;
+    border-bottom: 1px solid black;
+}
+
+.movie-detailssidebar-planets-header {
+    border-top: 1px solid black;
+}
+
+.movie-detailscontainer {
+    border: 1px solid black;
+    min-height: 740px;
+}
+
+.movie-detailsform-toggler {
+    border: none;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+    background-color: #eee;
+    width: 30px;
+    height: 30px;
+}
+
+.movie-detailsfrom-backlink,
+.movie-detailsform-editlink,
+.movie-detailsform-cancellink,
+.movie-detailsform-deletelink,
+.movie-detailsform-submitbutton,
+.deletion-modal-deletelink,
+.deletion-modal-notdeletelink {
+    cursor: pointer;
+    text-decoration: none;
+    background-color: #eee;
+    color: black;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+.movie-detailsform-deletelink,
+.movie-detailsform-submitbutton,
+.deletion-modal-deletelink,
+.deletion-modal-notdeletelink,
+.movie-detailsform-editlink {
+    border: none;
+    font-size: inherit;
+}
+
+.deletion-modal-deletelink,
+.deletion-modal-notdeletelink {
+    line-height: 1;
+}
+
+.deletion-modal-buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.movie-detailsform-buttons {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.movie-detailssidebar {
+    overflow-y: auto;
+    width: 200px;
+    border: 1px solid black;
+    border-left: none;
+    max-height: 797.625px;
+}
+
+.sort-button {
+    cursor: pointer;
+    padding: 15px;
+    border: none;
+    background-color: #eee;
+    font-size: inherit;
+}
+
+.sort-button:hover {
+    background-color: rgb(226, 226, 226);
+}
+
+.movie-detailsform {
+    text-align: right;
+    width: 600px;
+    margin: 0 auto;
+}
+
+.movie-detailsform-data {
+    text-align: center;
+}
+
+.movie-detailsform-data label {
+    display: block;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.sorting-buttons-container {
+    width: fit-content;
+    margin: 5px auto;
+}
+
+.character__button_expand,
+.planet__button_expand {
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.character__button_expand:hover,
+.planet__button_expand:hover {
+    background-color: #eee;
+}
+
+.characters__character div,
+.planets__planet div {
+    border-bottom: 1px solid black;
+    font-size: 14px;
+}
+
+.characters__character,
+.planets__planet {
+    padding: 5px;
+}
+
+.searchform {
+    border: 1px solid black;
+    width: fit-content;
+    margin: 5px auto;
+}
+
+.searchform-input,
+.searchform-button {
+    padding: 3px;
+    border: none
+}
+
+.deletion-modal {
+    background: white;
+    box-sizing: border-box;
+    border: 1px solid black;
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    left: 50%;
+    margin-left: -150px;
+    top: 50%;
+    margin-top: -150px;
+    padding: 20px;
+}

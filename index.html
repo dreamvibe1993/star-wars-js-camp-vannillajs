@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Press+Start+2P&display=swap" rel="stylesheet" />
+    <title>StarWars</title>
+</head>
+
+<body>
+    <h1 class="maintitle">Welcome to the StarWars geek lair!</h1>
+    <div class="loadingscreen hidden">Loading...</div>
+    <div class="movieadded-modal hidden">
+        <strong>Your movie's been added. Thank you!</strong><br />
+        <a href="index.html">Back</a>
+    </div>
+    <div class="movieedited-modal hidden">
+        <strong>Your changes have been submitted. Thank you!</strong><br />
+        <a href="index.html">Back</a>
+    </div>
+    <div class="error-modal hidden">
+        <strong>Oops! Something went wrong!</strong><br />
+        <a href="index.html">Back</a>
+    </div>
+    <main class="root hidden">
+        <section class="movietable-container">
+            <h3>Movies</h3>
+            <form class="searchform" onsubmit="searchAMovie(event)">
+                <input class="searchform-input" type="search" placeholder="Find your movie" />
+                <button class="searchform-button" type="submit" title="Click to search your movie.">
+            Search
+          </button>
+            </form>
+            <ul class="pagination" onclick="paginate(event)">
+                <li class="pagination-item-li">
+                    <input class="pagination-item-option" name="pagination" type="radio" id="pagination1" checked />
+                    <label class="pagination-item-label" for="pagination1">1</label>
+                </li>
+                <li class="pagination-item-li">
+                    <input class="pagination-item-option" name="pagination" type="radio" id="pagination2" />
+                    <label class="pagination-item-label" for="pagination2">2</label>
+                </li>
+            </ul>
+            <div class="table-display-container"></div>
+            <hr />
+            <a href="index.html?q=none&action=create">Create a movie</a>
+        </section>
+        <section class="movie-detailscontainer hidden">
+            <form name="editDetails" class="movie-detailsform" onsubmit="sendDetailsToDB(event)">
+                <button type="button" class="movie-detailsform-toggler hidden" title="Click to see related planets and characters." onclick="displayCharactersOrPlanets()">
+            ►
+          </button>
+                <div class="movie-detailsform-data">
+                    <h3>Details</h3>
+                    <label for="title"> Title </label>
+                    <br />
+                    <input name="title" id="title" type="text" required />
+                    <label for="date"> The premiere </label>
+                    <br />
+                    <input name="date" id="date" type="date" required />
+                    <label for="director"> Director </label>
+                    <br />
+                    <input name="director" id="director" type="text" required />
+                    <label for="crawl"> Opening crawl </label>
+                    <br />
+                    <textarea name="crawl" id="crawl" class="textarea-crawl" required></textarea>
+                    <label for="producer"> Producer </label>
+                    <br />
+                    <textarea name="producer" id="producer" class="textarea-producers" type="text" required></textarea
+            ><br />
+            <div class="movie-detailsform-buttons">
+              <!-- Don't mind the emptiness in href attribute. Links are pasted dynamically. See script.js -->
+              <a
+                class="movie-detailsform-editlink hidden"
+                title="Click to edit the movie."
+                href=""
+                >Edit</a
+              >
+              <a
+                class="movie-detailsform-cancellink hidden"
+                title="Click to cancel the editing. Unsaved changes will be lost!"
+                href=""
+                >Cancel</a
+              >
+              <a
+                class="movie-detailsfrom-backlink hidden"
+                title="Click to get back to main page."
+                href=""
+                >Back</a
+              >
+              <button
+                class="movie-detailsform-deletelink hidden"
+                title="Click to delete the movie."
+                type="button"
+              >
+                Delete
+              </button>
+              <button
+                class="movie-detailsform-submitbutton hidden"
+                title="Click to save the movie."
+                type="submit"
+              >
+                Save
+              </button>
+            </div>
+          </div>
+        </form>
+      </section>
+      <aside class="movie-detailssidebar hidden">
+        <h2 class="movie-detailssidebar-characters-header">Characters</h2>
+        <div class="movie-detailssidebar-characters-block"></div>
+        <h2 class="movie-detailssidebar-planets-header">Planets</h2>
+        <div class="movie-detailssidebar-planets-block"></div>
+      </aside>
+      <div class="deletion-modal hidden">
+        <img
+          alt="Are you sure you want to delete this movie?"
+          class="deletion-modal-img"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwTv2ZX4hXdpeEdXpr2WoCSy7gk2fjU3VUyQ&usqp=CAU"
+        />
+        <div class="deletion-modal-buttons">
+          <a href="" class="deletion-modal-deletelink">Yes</a>
+          <button
+            class="deletion-modal-notdeletelink"
+            type="button"
+            onclick="hideElements('deletion-modal')"
+          >
+            No
+          </button>
+        </div>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
